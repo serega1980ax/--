@@ -1,0 +1,6 @@
+create table users(id serial, pol varchar(1) not null default 'f', name varchar not null default ' ', email varchar default ' ');
+insert into users(pol, name, email) values('m', 'Vasya', 'mmm@mail.com'), ('m', 'Alex', 'mmm@gmail.com'), ('m', 'Alexey', 'alexey@gmail.com'), ('f', 'Helen', 'hell@gmail.com'), ('f', 'Jenny', 'eachup@gmail.com'), ('f', 'Lora', 'picks@gmail.com');
+
+select concat('This is ', name, case when pol = 'f' then ' s' else ' ' end, 'he has email ', email) from users;
+
+select concat('We have ', count(*), case when pol = 'm' then ' boys!' else ' girls' end) from users group by pol;
